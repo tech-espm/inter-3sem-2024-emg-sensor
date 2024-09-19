@@ -12,19 +12,20 @@
 - [Henrique Lecce](https://github.com/HSLPines/)
 - [João Helebel](https://github.com/joaohelbel/)
 - [Márcio Alexandroni](https://github.com/marcioalexandroni/)
-- [Isabelle Dib](https://github.com/impauloc/)
+- [Paulo César](https://github.com/impauloc/)
 
 ## Descrição do Projeto
 
--
+- Realizaçar um projeto com o Arduino no qual, usaremos o sensor E.M.G. (eletromiográfico) para medir a contração muscular do usuário do nosso sistema. O projeto engloba também a criação de um programa web para disponibilizar gráficos dos dados coletados pela equipe. Tais dados e gráficos poderão ser usados para análisar performance física e uso correto de grupos muscúlares para pacientes de recuperação física e habilidades motoras.
 
 ### Problema
 
--
+- 
 
 ### Objetivo Final
 
--
+- O grupo visa desenvolver no projeto um sistema integrado para coletar sinais eletromiográficos utilizando um sensor EMG acoplado ao Arduino, e enviar os dados para uma aplicação web construída com Spring Boot. Esses sinais serão processados e analisados para identificar padrões musculares, com foco em saúde e reabilitação muscular.
+
 
 # Detalhes de Configuração
 
