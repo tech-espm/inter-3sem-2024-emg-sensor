@@ -11,7 +11,7 @@
 ## Integrantes
 - [Henrique Lecce](https://github.com/HSLPines/)
 - [João Helebel](https://github.com/joaohelbel/)
-- [Márcio Alexandroni](https://github.com/marcioalexandroni/)
+- [Márcio Alexandroni](https://github.com/marcio-alexandroni/)
 - [Paulo César](https://github.com/impauloc/)
 
 ## Descrição do Projeto
