@@ -1,11 +1,197 @@
-<div class="container-fluid">
+<div class="vaga animate__animated animate__fadeIn">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-6 offset-6"> 
+				<div class="inicio animate__animated animate__fadeIn ">
+					<h1 class="titulo1 animate__animated animate__fadeInDown">
+						EMGods
+					</h1>
+					<p class="desc1 animate__animated animate__fadeInDown">
+						Acompanhamentos Personalizados para o Ápice da recuperação e desenvolvimento muscular
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-	<h1>
-		Sobre
-	</h1>
 
-	<p>
-		Sobre nós! 😊
-	</p>
+<div style="padding-top:500px">
 
 </div>
+
+<%- contentFor("espaco-head") %>
+<link rel="stylesheet" href="/public/css/animate.css">
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <script src="/public/js/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>
+
+<style>
+
+	.my-element {
+		display: inline-block;
+		margin: 0 0.5rem;
+	  
+		animation: bounce; /* referring directly to the animation's @keyframe declaration */
+		animation-duration: 2s; /* don't forget to set a duration! */
+	  }
+
+
+/* This only changes this particular animation duration */
+.animate__animated.animate__fadeIn {
+	--animate-duration: 1.5s;
+  }
+.animate__animated.animate__fadeInDown {
+	--animate-duration: 1.5s;
+}
+  
+  /* This changes all the animations globally */
+  :root {
+	--animate-duration: 800ms;
+	--animate-delay: 0.9s;
+  }
+
+	.redonda {
+		border-radius: 20px;
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+	}
+
+	.inicio {
+		padding: 30px;
+		margin: 10px;
+		max-width: 400px;
+		background-color: rgba(195, 195, 195, 0.245);
+		border-radius: 20px;
+		border-color: black;
+		border-style: solid;
+	}
+
+	.titulo1 {
+		text-align: center;
+		font-weight: bold;
+		font-family:Georgia, 'Times New Roman', Times, serif;
+		font-size: 40px;
+		max-width: 500px;
+		color: rgb(5, 5, 6);
+	}
+
+	.desc1 {
+		text-align: center;
+		font-size: 18px;
+		max-width: 360px;
+		margin: 0px;
+		color: rgb(10, 10, 10);
+	}
+
+	.vaga {
+		margin: 0;
+		padding: 120px 30px;
+		background-image: url(/public/img/FundoSobre.jpg);
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-top:solid;
+		border-bottom:solid;
+        border-color: rgba(0, 0, 0, 0.351);
+	}
+
+	.negrito {
+		font-weight: bold;
+	}
+
+	.negrito2 {
+		font-weight: bold;
+		font-style: oblique;
+	}
+
+	.Max {
+		vertical-align: bottom;
+		display: inline-block;
+		margin: 0 auto auto 10px;
+	}
+
+	.Max img {
+		vertical-align: bottom;
+		filter: drop-shadow(1px 1px 1px black);
+	}
+
+	.fundoquem {
+		margin: 0;
+		padding: 100px 80px;
+		background-color: whitesmoke;
+		color: black;
+	}
+
+	.fundonossa {
+		background-color: rgb(197, 212, 233);
+		margin: 0;
+		padding: 100px 80px;
+		color: black;
+	}
+
+	.Sobr {
+		font-size: 20px;
+		padding: 10px;
+		margin: 10px 10px;
+		text-indent: 35px;
+		text-align: justify;
+	}
+
+	.Parte {
+		padding: 20px;
+		text-align: center;
+	}
+
+	.FotoP {
+		max-width: 200px;
+		max-height: 150px;
+		height: auto;
+		border-radius: 999px;
+		box-shadow: 3px 2px 2px 1px rgba(0, 0, 0, 0.578);
+		margin: 30px auto 30px 20px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: rgb(97, 97, 97);
+	}
+
+	.FP {
+		background-image: url(SobreNós/LPC.png);
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		margin: 0px;
+		padding: 10px 0;
+	}
+
+	.Espaco {
+		margin: 10px auto 20px 10px;
+	}
+	
+	.pessoas {
+		color: black;
+		padding: 50px 0;
+	}
+
+	.fundope {
+		background-image: url(/public/img/o-que-e-pcd.jpg);
+		margin: 0;
+		padding: 180px 90px;
+		background-position: center center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		border-top: solid 1px rgba(0, 0, 0, 0.155);
+		border-bottom: solid 1px rgba(0, 0, 0, 0.155);;
+	}
+</style>
+
+<%- contentFor("espaco-rodape") %>
+<script src="/public/js/wow.min.js"></script>
+<script>
+new WOW().init();
+</script>
