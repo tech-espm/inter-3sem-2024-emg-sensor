@@ -1,33 +1,99 @@
-﻿<div class="container-fluid">
+﻿<div class="container-fluid full">
 
-	<h1>
-		EMGods BR
+	<h1 style="text-align: center; padding-bottom: 10px;">
+		Projeto
 	</h1>
-	
+
 	<div class="row">
 		<div class="col-sm-4">
 
-			<div class="card shadow my-4">
+			<div class="card shadow mb-4">
 				<div class="card-body">
 					<form id="form">
 						<div class="form-group">
 							<label for="data">Data</label>
-							<input id="data" name="data" class="form-control" type="date" value="<%= ano %>-<%= mes %>-<%= dia %>" />
+							<input id="data" name="data" class="form-control" type="date"
+								value="<%= ano %>-<%= mes %>-<%= dia %>" />
 						</div>
-		
+
 						<button type="submit" class="btn btn-primary">Listar</button>
 					</form>
+
 				</div>
 			</div>
+		</div>
 
+		<div class="col-sm-8">
+			<div class="card mb-2">
+				<div class="card-body">
+					<h4>🥇DESCRIÇÃO:</h4>
+					<p style="text-align: justify;">
+						Este projeto utiliza um sensor EMG conectado ao Arduino para capturar e monitorar a atividade
+						muscular
+						durante exercícios de reabilitação. O sistema mede a contração dos músculos em tempo real,
+						permitindo
+						que profissionais de saúde acompanhem o progresso dos pacientes que estão em tratamento de
+						reabilitação
+						muscular.
+						<br>
+						Os dados coletados são exibidos em um dashboard administrativo, oferecendo uma visualização
+						clara e
+						intuitiva das métricas de contração muscular, facilitando a análise e o acompanhamento do
+						desempenho do
+						paciente ao longo do tempo. O objetivo principal é fornecer informações úteis para ajustar o
+						tratamento
+						e melhorar o processo de recuperação muscular.
+					</p>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="card shadow my-4">
-		<div class="card-body" id="div-grafico"></div>
+	<div class="card mb-2">
+		<div class="card-body">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-5">
+						<div class="card-body">
+							<div class="chart-pie">
+								<canvas id="ChartDoughnut"></canvas>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="card-body">
+							<div class="chart-bar">
+								<div id="div-grafico">
+									<canvas id="grafico-barras"></canvas>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
+	<div class="card">
+		<div class="card-body">
+			<div class="container">
+				<div class="chart-line">
+					<canvas id="lineChart"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<style>
+	.chart-line {
+		position: relative;
+		height: 300px;
+	}
+
+
+
+	
+</style>
 
 <script src="/public/js/jquery-validate/jquery.validate.min.js"></script>
 <script src="/public/js/jquery-validate/additional-methods.min.js"></script>
@@ -60,7 +126,7 @@
 				Swal.close();
 
 				let div = document.getElementById("div-grafico");
-				div.innerHTML = '<canvas id="grafico-barras" style="height: 50vh;"></canvas>';
+				div.innerHTML = '<canvas id="grafico-barras" style="height: 300px;"></canvas>';
 
 				let labels = [], data = [];
 
@@ -153,6 +219,179 @@
 		}
 	}
 
+
+
+	async function exibirPizza() {
+		waitSwal();
+
+		try {
+			let response = await fetch("/obterDados");
+
+			if (response.ok) {
+				swal.close();
+
+				let chartContainer = document.getElementById("ChartDoughnut");
+
+				if (chartContainer) {
+					let labels = [], data = [];
+
+					let dados = await response.json();
+					if (!dados || !dados.length) {
+						Swal.fire("Erro", "Sem dados na data especificada!", "error");
+						return;
+					}
+
+					for (let i = 0; i < dados.length; i++) {
+						labels.push(dados[i].dia);
+						data.push(dados[i].valor);
+					}
+
+					new Chart(chartContainer, {
+						type: "doughnut",
+						data: {
+							labels: labels,
+							datasets: [{
+								label: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+								backgroundColor: ["#4e73df", "#1cc88a", "#36b9cc"],
+								hoverBackgroundColor: ["#2e59d9", "#17a673", "#2c9faf"],
+								borderColor: ["#ffffff", "#ffffff", "#ffffff"],
+								data: data,
+							}],
+						},
+						options: {
+							maintainAspectRatio: false,
+							cutoutPercentage: 80,
+							legend: {
+								display: false
+							},
+							tooltips: {
+								backgroundColor: "rgb(255,255,255)",
+								bodyFontColor: "#858796",
+								borderColor: '#dddfeb',
+								borderWidth: 1,
+								xPadding: 15,
+								yPadding: 15,
+								displayColors: false,
+								caretPadding: 10
+							},
+						}
+					});
+				}
+			} else {
+				Swal.fire("Erro", "Falha ao obter dados!", "error");
+			}
+		} catch (error) {
+			Swal.fire("Erro", "Erro ao exibir erro: " + error.message, "error");
+		}
+	}
+
+	async function exibirLinha() {
+		waitSwal();
+
+		try {
+			let response = await fetch("/obterDados");
+
+			if (response.ok) {
+				swal.close();
+
+				let lineContainer = document.getElementById("lineChart");
+
+				if (lineContainer) {
+					let labels = [], data = [];
+
+					let dados = await response.json();
+					if (!dados || !dados.length) {
+						Swal.fire("Erro", "Sem dados na data especificada!", "error");
+						return;
+					}
+
+					for (let i = 0; i < dados.length; i++) {
+						labels.push(dados[i].dia);
+						data.push(dados[i].valor);
+					}
+
+					new Chart(lineContainer, {
+						type: "line",
+						data: {
+							labels: labels,
+							datasets: [{
+								label: "Valor",
+								backgroundColor: "#4e73df",
+								hoverBackgroundColor: "#2e59d9",
+								borderColor: "#4e73df",
+								data: data,
+							}],
+						},
+						options: {
+							maintainAspectRatio: false,
+							layout: {
+								padding: {
+									left: 10,
+									right: 25,
+									top: 25,
+									bottom: 0
+								}
+							},
+							scales: {
+								x: {
+									gridLines: {
+										display: false,
+										drawBorder: false
+									},
+									ticks: {
+										maxTicksLimit: 10
+									},
+									maxBarThickness: 25,
+								},
+								y: {
+									//display: false,
+									ticks: {
+										min: 0,
+										max: 10,
+										maxTicksLimit: 10,
+										padding: 10
+									},
+									gridLines: {
+										color: "rgb(234, 236, 244)",
+										zeroLineColor: "rgb(234, 236, 244)",
+										drawBorder: false,
+										borderDash: [2],
+										zeroLineBorderDash: [2]
+									}
+								},
+							},
+							legend: {
+								display: false
+							},
+							tooltips: {
+								titleMarginBottom: 10,
+								titleFontColor: '#6e707e',
+								titleFontSize: 14,
+								backgroundColor: "rgb(255,255,255)",
+								bodyFontColor: "#858796",
+								borderColor: '#dddfeb',
+								borderWidth: 1,
+								xPadding: 15,
+								yPadding: 15,
+								displayColors: false,
+								caretPadding: 10
+							},
+						}
+					})
+				}
+			}
+
+
+		} catch (error) {
+			Swal.fire("Erro", "Erro ao exibir erro: " + error.message, "error");
+		}
+	}
+
+
+
+
+	exibirPizza();
 	atualizarDados();
+	exibirLinha()
 
 </script>
