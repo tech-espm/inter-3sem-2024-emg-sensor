@@ -12,6 +12,7 @@
   "main": "src/app.js",
   "dependencies": {
     "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
     "dotenv": "16.4.5",
     "teem": "0.0.26"
   },
