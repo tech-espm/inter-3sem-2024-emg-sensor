@@ -40,6 +40,14 @@ class IndexRoute {
 		res.render("index/sobre", opcoes);
 	}
 
+	public async relatorio(req: app.Request, res: app.Response) {
+		let opcoes = {
+			titulo: "Relatório"
+		};
+
+		res.render("index/relatorio", opcoes);
+	}
+
 	public async obterDados(req: app.Request, res: app.Response) {
 		let dados = [
 			{ dia: "10/09", valor: 80 },
