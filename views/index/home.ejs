@@ -1,11 +1,11 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div class="col-md-6 mt-5">
-            <h1>
+        <div class="col-md-5 mt-5 offset-1">
+            <h1 class="titulotopo mb-3">
                 EMGods
             </h1>
-            <p style="text-align: justify;">
+            <p style="text-align: justify;justify-content:center">
                 O EMGods é um projeto inovador criado para otimizar o desempenho físico e acelerar a recuperação de
                 lesões, combinando o conhecimento científico sobre exercícios com tecnologia de ponta. Utilizando
                 sensores EMG (Eletromiografia de Superfície), o sistema monitora e melhora a contração muscular,
@@ -36,11 +36,11 @@
                     desequilíbrios musculares antes que se tornem lesões graves.
                 </li>
             </ul>
-            <div class="row justify-content-end pr-4">
-                <div class="col-md-3 mt-1">
+            <div class="row justify-content-end ">
+                <div class="col-md-5 mt-3 pr-4">
                     <a href="/" class="btn-ctc">Saiba Mais</a>
                 </div>
-                <div class="col-md-2 mt-1 pr-4">
+                <div class="col-md-3 mt-3 pr-4">
                     <a href="/" class="btn-ctc">Contato</a>
                 </div>
             </div>
@@ -49,9 +49,10 @@
             <img src="public/img/icon/interno.png" alt="">
         </div>
     </div>
+    <div style="padding: 10px;"></div>
     <hr>
 <div style="padding:10px"></div>
-    <h2 style="text-align: center;">Benefícios</h2>
+    <h2 class="titulo">Benefícios</h2>
     <div class="row" style="text-align: center;">
         <div class="col-md-4 box-bfc">
             <img src="public/img/icon/melhor grafico.png" alt="">
@@ -68,7 +69,7 @@
     </div>
 <div style="padding:10px"></div>
     <hr>
-    <h2 style="text-align: center;font-weight:bold;font-size:45px;padding-top:15px">Como usar</h2>
+    <h2 class="titulo mt-4">Como usar</h2>
     <div class="container-fluid box">
         <div class="row" style="text-align: center;">
             <!-- Triceps -->
@@ -321,7 +322,7 @@
 
     </div>
     <hr>
-    <h2 class="py-4" style="text-align: center;font-weight:bold;font-size:45px;">Fale conosco</h2>
+    <h2 class="py-4 titulo">Fale conosco</h2>
     <div class="row mt-4">
         <div class="col-lg-5 offset-1">
             <div class="box-cont mb-2">
@@ -369,6 +370,7 @@
     </div>
 </div>
 
+<%- contentFor("espaco-head") %>
 
 <style>
     .icon-rs {
@@ -434,6 +436,20 @@
         background-color: #96b6d8;
         color: #fff;
         transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .titulotopo{
+        text-align: center;
+        font-weight: bold;
+        font-family: Lato;
+        font-size: 55px;
+    }
+
+    .titulo{
+        text-align: center;
+        font-weight: bold;
+        font-family: Poppins;
+        font-size: 45px;
     }
 
     
