@@ -2,6 +2,16 @@ create schema modelo_emg;
 
 use modelo_emg;
 
+CREATE TABLE ENDERECO (
+    id_endereco INT AUTO_INCREMENT PRIMARY KEY,
+    logradouro VARCHAR(255) NOT NULL,
+    numero VARCHAR(10),
+    complemento VARCHAR(255),
+    cidade VARCHAR(100),
+    estado VARCHAR(100),
+    cep VARCHAR(15)
+);
+
 create table PACIENTE (
 	id_paciente INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
@@ -25,17 +35,6 @@ CREATE TABLE USUARIO (
     nome VARCHAR(255) NOT NULL,
     login VARCHAR(255) NOT NULL UNIQUE,
     senha_hash VARCHAR(255)
-);
-
-
-CREATE TABLE ENDERECO (
-    id_endereco INT AUTO_INCREMENT PRIMARY KEY,
-    logradouro VARCHAR(255) NOT NULL,
-    numero VARCHAR(10),
-    complemento VARCHAR(255),
-    cidade VARCHAR(100),
-    estado VARCHAR(100),
-    cep VARCHAR(15)
 );
 
 CREATE TABLE PROF_SAUDE (
