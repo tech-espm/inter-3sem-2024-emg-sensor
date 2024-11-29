@@ -24,7 +24,7 @@ class IndexRoute {
 		} else {
 
 			await app.sql.connect(async (sql: app.Sql) => {
-				await sql.query("insert into emg_dados (), values ()", leitura);
+				await sql.query("insert into modelo_emg(id_leitura, id_sessao, tempo, tensao, amplitude), values ()", leitura);
 			});
 			res.status(204).end();
 

@@ -1,3 +1,6 @@
+
+-- modelo final base
+ 
 create schema modelo_emg;
 
 use modelo_emg;
