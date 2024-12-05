@@ -105,10 +105,10 @@
     const emgChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [],
+            labels: Array.from({ length: 100 }, (_, i) => 100 - i),
             datasets: [{
                 label: 'Sinal EMG (mV)',
-                data: [],
+                data: Array.from({ length: 100 }, () => 0),
                 borderColor: 'rgba(75, 192, 192, 1)',
                 borderWidth: 1,
                 fill: false
@@ -136,37 +136,54 @@
         }
     });
 
-    function getRandomEmgData() {
-        return (Math.random() * 600 - 300).toFixed(2);
+    let timeout = 0;
+    async function updateEmgData() {
+        try {
+            let response = await fetch("/obterDadosDev");
+            if (response.ok) {
+                let lista = await response.json();
+                if (!lista) {
+                    lista = [];
+                }
+                while (lista.length < 100) {
+                    lista.unshift(0);
+                }
+
+                //emgChart.data.datasets[0].data.push(Math.random() * 100);
+                //emgChart.data.datasets[0].data.shift();
+                emgChart.data.datasets[0].data = lista;
+
+                emgChart.update("none");
+            }
+        } catch (error) {
+            console.error(error);
+        }
+
+        timeout = setTimeout(updateEmgData, 100);
     }
 
-    let interval;
     function startEmgSimulation() {
-        interval = setInterval(() => {
-            const currentTime = new Date().toLocaleTimeString();
-            const emgValue = getRandomEmgData();
+        if (timeout) {
+            return;
+        }
 
-            emgChart.data.labels.push(currentTime);
-            emgChart.data.datasets[0].data.push(emgValue);
-
-            if (emgChart.data.labels.length > 30) {
-                emgChart.data.labels.shift();
-                emgChart.data.datasets[0].data.shift();
-            }
-
-            emgChart.update();
-        }, 1000);
+        updateEmgData();
     }
 
     function pauseEmgSimulation() {
-        clearInterval(interval);
+        if (timeout) {
+            clearTimeout(timeout);
+            timeout = 0;
+        }
     }
 
     function stopEmgSimulation() {
-        clearInterval(interval);
-        emgChart.data.labels = [];
-        emgChart.data.datasets[0].data = [];
-        emgChart.update();
+        if (timeout) {
+            clearTimeout(timeout);
+            timeout = 0;
+        }
+        emgChart.data.datasets[0].data = Array.from({ length: 100 }, () => 0);
+        emgChart.update("none");
     }
 
     document.getElementById('playButton').addEventListener('click', startEmgSimulation);

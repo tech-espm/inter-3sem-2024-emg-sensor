@@ -91,20 +91,15 @@ class IndexRoute {
 
 	}
 
-	public async obterDados(req: app.Request, res: app.Response) {
+	public async obterDadosDev(req: app.Request, res: app.Response) {
 
-		let dados = [
-			{ dia: "10/09", valor: 80 },
-			{ dia: "11/09", valor: 92 },
-			{ dia: "12/09", valor: 90 },
-			{ dia: "13/09", valor: 101 },
-			{ dia: "14/09", valor: 105 },
-			{ dia: "15/09", valor: 100 },
-			{ dia: "16/09", valor: 64 },
-			{ dia: "17/09", valor: 78 },
-			{ dia: "18/09", valor: 93 },
-			{ dia: "19/09", valor: 110 }
-		];
+		let dados: number[];
+
+		await app.sql.connect(async (sql: app.Sql) => {
+			let lista: any[] = await sql.query("select amplitude from leitura order by id_leitura desc limit 100");
+			dados = lista.map(l => l.amplitude);
+			dados.reverse();
+		});
 
 		res.json(dados);
 
