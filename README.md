@@ -16,7 +16,7 @@
 
 ## Descrição do Projeto
 
-- Realizaçar um projeto com o Arduino no qual, usaremos o sensor E.M.G. (eletromiográfico) para medir a contração muscular do usuário do nosso sistema. O projeto engloba também a criação de um programa web para disponibilizar gráficos dos dados coletados pela equipe. Tais dados e gráficos poderão ser usados para análisar performance física e uso correto de grupos muscúlares para pacientes de recuperação física e habilidades motoras.
+- Realizamos um projeto com o Arduino no qual, usaremos o sensor E.M.G. (eletromiográfico) para medir a contração muscular do usuário do nosso sistema. O projeto engloba também a criação de um programa web para disponibilizar gráficos dos dados coletados pela equipe. Tais dados e gráficos poderão ser usados para análisar performance física e uso correto de grupos muscúlares para pacientes de recuperação física e habilidades motoras.
 
 ### Problema
 
