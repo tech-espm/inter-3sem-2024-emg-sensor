@@ -12,7 +12,7 @@
 - [Henrique Lecce](https://github.com/HSLPines/)
 - [João Helbel](https://github.com/joaohelbel/)
 - [Márcio Alexandroni](https://github.com/marcio-alexandroni/)
-- [Paulo César](https://github.com/impauloc/)
+- [Paulo Cesar](https://github.com/impauloc/)
 
 ## Descrição do Projeto
 
