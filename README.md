@@ -16,15 +16,30 @@
 
 ## Descrição do Projeto
 
-- Realizamos um projeto com o Arduino no qual, usaremos o sensor E.M.G. (eletromiográfico) para medir a contração muscular do usuário do nosso sistema. O projeto engloba também a criação de um programa web para disponibilizar gráficos dos dados coletados pela equipe. Tais dados e gráficos poderão ser usados para análisar performance física e uso correto de grupos muscúlares para pacientes de recuperação física e habilidades motoras.
+- O projeto EMGODS combina hardware, software e ciência de dados para criar um sistema integrado que monitora a contração muscular usando um sensor eletromiográfico (EMG). Utilizamos um Arduino Uno e um sensor EMG para capturar sinais musculares, que são então enviados para uma aplicação web desenvolvida com Spring Boot, EJS, HTML, CSS e Redis. Esses dados são processados, armazenados em um banco MySQL e exibidos como gráficos interativos, permitindo análise da performance muscular e suporte a reabilitação física.
 
 ### Problema
 
-- 
+- A reabilitação física e o monitoramento muscular frequentemente carecem de ferramentas acessíveis e interativas para capturar e analisar padrões musculares em tempo real. Nosso objetivo é fornecer um sistema que facilite a coleta, o processamento e a interpretação desses dados, promovendo melhorias na saúde e recuperação muscular.
 
 ### Objetivo Final
 
-- O grupo visa desenvolver no projeto um sistema integrado para coletar sinais eletromiográficos utilizando um sensor EMG acoplado ao Arduino, e enviar os dados para uma aplicação web construída com Spring Boot. Esses sinais serão processados e analisados para identificar padrões musculares, com foco em saúde e reabilitação muscular.
+- Desenvolver um sistema integrado que:
+
+Colete sinais eletromiográficos de forma precisa.
+Envie os dados para um servidor web utilizando Arduino e Redis.
+Armazene os dados em um banco MySQL estruturado para análise posterior.
+Disponibilize gráficos interativos para análise visual na aplicação web.
+Identifique padrões musculares com foco em reabilitação e saúde.
+
+### Tecnologias Utilizadas
+Hardware: Arduino Uno, Sensor EMG.
+Frontend: HTML, CSS, EJS.
+Backend: Spring Boot, Java.
+Banco de Dados: MySQL.
+Cache: Redis.
+Virtualização: Docker.
+Linguagens: Java, C++.
 
 
 # Detalhes de Configuração
