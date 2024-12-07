@@ -26,20 +26,20 @@
 
 - Desenvolver um sistema integrado que:
 
-Colete sinais eletromiográficos de forma precisa.
-Envie os dados para um servidor web utilizando Arduino e Redis.
-Armazene os dados em um banco MySQL estruturado para análise posterior.
-Disponibilize gráficos interativos para análise visual na aplicação web.
-Identifique padrões musculares com foco em reabilitação e saúde.
+-- Colete sinais eletromiográficos de forma precisa.
+-- Envie os dados para um servidor web utilizando Arduino e Redis.
+-- Armazene os dados em um banco MySQL estruturado para análise posterior.
+-- Disponibilize gráficos interativos para análise visual na aplicação web.
+-- Identifique padrões musculares com foco em reabilitação e saúde.
 
 ### Tecnologias Utilizadas
-Hardware: Arduino Uno, Sensor EMG.
-Frontend: HTML, CSS, EJS.
-Backend: Spring Boot, Java.
-Banco de Dados: MySQL.
-Cache: Redis.
-Virtualização: Docker.
-Linguagens: Java, C++.
+- Hardware: Arduino Uno, Sensor EMG.
+- Frontend: HTML, CSS, EJS.
+- Backend: Spring Boot, Java.
+- Banco de Dados: MySQL.
+- Cache: Redis.
+- Virtualização: Docker.
+- Linguagens: Java, C++.
 
 
 # Detalhes de Configuração
